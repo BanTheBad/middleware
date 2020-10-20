@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const swaggerUi = require('swagger-ui-express');
+const passport = require('passport');
 const apiDoc = require('../docs/ban-the-bad-docs.json');
 const errorHandler = require('./middleware/errorHandler');
 
@@ -9,6 +10,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan('dev'));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(apiDoc));
 
@@ -27,5 +30,15 @@ app.all('*', (_, response) => {
 });
 
 app.use(errorHandler);
+
+passport.serializeUser((user, done) => {
+  // TODO: update this based on the database and user models
+  done(null, user);
+});
+
+passport.deserializeUser((user, done) => {
+  // TODO: update this based on the database and user models
+  done(null, user);
+});
 
 module.exports = app;
