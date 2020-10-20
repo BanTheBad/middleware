@@ -1,0 +1,64 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "BanTheBad API",
+    "description": "API documenation",
+    "contact": {
+      "email": "banthebad@proton.com"
+    },
+    "license": {
+      "name": "ISC License",
+      "url": "https://opensource.org/licenses/ISC"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "description": "Localhost Development Environment",
+      "url": "http://localhost:{port}",
+      "variables": {
+        "port": {
+          "enum": [
+            "3000",
+            "4000",
+            "5000"
+          ],
+          "default": "5000"
+        }
+      }
+    },
+    {
+      "url": "https://virtserver.swaggerhub.com/meetKazuki/Happenings/1.0.0",
+      "description": "SwaggerHub API Auto Mocking"
+    }
+  ],
+  "tags": [
+    {
+      "name": "admins",
+      "description": "Secured Admin-only calls"
+    },
+    {
+      "name": "users",
+      "description": "Endpoints that can be accessed by users"
+    },
+    {
+      "name": "stories",
+      "description": "Endpoints associated with stories on the website"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "summary": "welcome endpoint for API",
+        "responses": {
+          "200": {
+            "description": "success. welcome message is displayed"
+          }
+        }
+      }
+    }
+  }
+}
