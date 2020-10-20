@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const swaggerUi = require('swagger-ui-express');
 const passport = require('passport');
 const apiDoc = require('../docs/ban-the-bad-docs.json');
+const controllers = require('./controllers');
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
@@ -14,6 +15,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(apiDoc));
+
+app.use('/login', controllers.login);
 
 app.get('/', (_, response) => {
   response.status(200).json({
