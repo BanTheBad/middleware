@@ -34,6 +34,19 @@ passport.use(new GoogleStrategy(
   }
 ));
 
+// TODO: handle errors/failed google authentication
+// normally passport's 'failureRedirect' option is ideal for this, but if we're using React
+// on the front end perhaps we'll want to only respond with a json object instead of
+// reloading the entire page?
+app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+
+app.get('/auth/google/callback', passport.authenticate('google', (req, res) => {
+  res.status(200).json({
+    status: 'success',
+    message: 'google signin success',
+  });
+}));
+
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(apiDoc));
 
 app.use('/login', controllers.login);
