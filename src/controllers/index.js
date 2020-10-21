@@ -1,1 +1,0 @@
-exports.login = require('./login');
