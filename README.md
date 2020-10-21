@@ -45,7 +45,12 @@ Ensure you have the following installed on your local machine.
 #### Google Oauth config
 - Visit the [Google API Console](https://console.developers.google.com/) (create an account if necessary)
 - From the project drop-down, select an existing project, or create a new one by selecting Create a new project
-  - You can select `Internal` for the User Type since this is for your local development
+  - You may need to fill out the `OAuth consent screen`
+    - Unless you're a G Suite user, you have to select `External` for the `User Type`
+    - You don't need to fill out the `App Domains` section
+    - Select the `userinfo.email` and `userinfo.profile` scopes to match the scopes used by the server
+    - When done, go back to the Credentials page and repeat the process, this time you'll be able to create
+    the Oauth client
 - In the sidebar under "APIs & Services", select Credentials
 - In the Credentials tab, select the Create credentials drop-down list, and choose OAuth client ID.
 - Under Application type, select Web application.
