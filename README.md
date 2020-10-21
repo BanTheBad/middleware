@@ -42,6 +42,17 @@ Ensure you have the following installed on your local machine.
 
 - Create/configure a `.env` file with your credentials. A sample `.env.example` file has been provided to get you started. Make a duplicate of `.env.example` and rename to `.env`, then configure your credentials.
 
+#### Google Oauth config
+- Visit the [Google API Console](https://console.developers.google.com/) (create an account if necessary)
+- From the project drop-down, select an existing project, or create a new one by selecting Create a new project
+  - You can select `Internal` for the User Type since this is for your local development
+- In the sidebar under "APIs & Services", select Credentials
+- In the Credentials tab, select the Create credentials drop-down list, and choose OAuth client ID.
+- Under Application type, select Web application.
+- In Authorized redirect URI use `http://localhost:<PORT>/auth/google/callback`
+- Press the Create button and copy the generated client ID and client secret
+- In your `.env` file, paste the values in the `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` variables
+
 - Two `npm` scripts are available to spin up the server:
   - `npm run dev` spins up the server and watch for file changes
   - `npm run dev:debug` spins up the server and attaches a debugger to it
