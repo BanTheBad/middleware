@@ -40,12 +40,16 @@ passport.use(new GoogleStrategy(
 // reloading the entire page?
 app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-app.get('/auth/google/callback', passport.authenticate('google', (req, res) => {
-  res.status(200).json({
-    status: 'success',
-    message: 'google signin success',
-  });
-}));
+app.get(
+  '/auth/google/callback',
+  passport.authenticate('google'),
+  (req, res) => {
+    res.status(200).json({
+      status: 'success',
+      message: 'google signin success',
+    });
+  }
+);
 
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(apiDoc));
 
