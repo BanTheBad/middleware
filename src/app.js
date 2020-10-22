@@ -1,16 +1,11 @@
 const express = require('express');
 const morgan = require('morgan');
-const swaggerUi = require('swagger-ui-express');
 const passport = require('passport');
+const swaggerUi = require('swagger-ui-express');
 
 const apiDoc = require('../docs/ban-the-bad-docs.json');
-const errorHandler = require('./shared/errorHandler');
-
-const admin = require('./admin/adminRoutes');
-const cases = require('./cases/casesRoutes');
-const contributors = require('./contributors/contributorsRoutes');
-const victims = require('./victims/victimsRoutes');
-const auth = require('./auth/authRoutes');
+const errorHandler = require('./middleware/errorHandler');
+const router = require('./routes');
 
 const app = express();
 
@@ -20,12 +15,7 @@ app.use(morgan('dev'));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/auth', auth);
-app.use('/admin', admin);
-app.use('/cases', cases);
-app.use('/contributors', contributors);
-app.use('/victims', victims);
-
+app.use(router);
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(apiDoc));
 
 app.get('/', (_, response) => {

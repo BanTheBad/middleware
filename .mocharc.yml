@@ -1,0 +1,5 @@
+exit: true
+extension:
+  - js
+recursive: true
+reporter: spec

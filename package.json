@@ -4,11 +4,15 @@
   "description": "Middleware layer implementing API connection to databases and authentication",
   "main": "index.js",
   "scripts": {
+    "db:migrate": "sequelize db:migrate",
+    "db:migrate:undo": "sequelize db:migrate:undo:all",
+    "db:reset": "npm run db:migrate:undo && npm run db:migrate",
+    "db:seed": "sequelize db:seed:all",
     "dev": "nodemon src/server.js",
     "dev:debug": "nodemon --inspect src/server.js",
     "start": "node src/server.js",
     "sync:env": "sync-dotenv",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nyc mocha test/test.spec.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +31,7 @@
     "eslint-plugin-import": "^2.22.1",
     "husky": "^4.3.0",
     "nodemon": "^2.0.6",
+    "sequelize-cli": "^6.2.0",
     "sync-dotenv": "^2.6.2"
   },
   "dependencies": {
@@ -36,6 +41,8 @@
     "passport": "^0.4.1",
     "passport-google-oauth": "^2.0.0",
     "passport-local": "^1.0.0",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5",
     "swagger-ui-express": "^4.1.4",
     "winston": "^3.3.3"
   },

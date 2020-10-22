@@ -1,13 +1,14 @@
-const express = require('express');
+const { Router } = require('express');
+
 const {
   getAllContributors,
   getContributor,
   addContributor,
   updateContributor,
   deleteContributor,
-} = require('./contributorsController');
+} = require('../controllers/contributorsController');
 
-const router = express.Router();
+const router = Router();
 
 router.get('/', getAllContributors);
 

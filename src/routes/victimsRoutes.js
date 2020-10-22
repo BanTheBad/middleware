@@ -1,13 +1,14 @@
-const express = require('express');
+const { Router } = require('express');
+
 const {
   getAllVictims,
   getVictim,
   addVictim,
   updateVictim,
   deleteVictim,
-} = require('./victimsController');
+} = require('../controllers/victimsController');
 
-const router = express.Router();
+const router = Router();
 
 router.get('/', getAllVictims);
 
