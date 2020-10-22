@@ -1,6 +1,7 @@
 const { config } = require('dotenv');
 const http = require('http');
-const logger = require('./config/logger');
+
+const logger = require('./shared/logger');
 const app = require('./app');
 
 config();
