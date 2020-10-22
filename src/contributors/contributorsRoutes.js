@@ -5,7 +5,7 @@ const {
   addContributor,
   updateContributor,
   deleteContributor,
-} = require('./contributors_controllers');
+} = require('./contributorsController');
 
 const router = express.Router();
 

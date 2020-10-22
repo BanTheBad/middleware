@@ -6,11 +6,11 @@ const passport = require('passport');
 const apiDoc = require('../docs/ban-the-bad-docs.json');
 const errorHandler = require('./shared/errorHandler');
 
-const admin = require('./admin/admin_routes');
-const cases = require('./cases/cases_routes');
-const contributors = require('./contributors/contributors_routes');
-const victims = require('./victims/victims_routes');
-const auth = require('./auth/auth_routes');
+const admin = require('./admin/adminRoutes');
+const cases = require('./cases/casesRoutes');
+const contributors = require('./contributors/contributorsRoutes');
+const victims = require('./victims/victimsRoutes');
+const auth = require('./auth/authRoutes');
 
 const app = express();
 

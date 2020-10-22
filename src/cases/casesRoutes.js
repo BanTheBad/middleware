@@ -5,7 +5,7 @@ const {
   addCase,
   updateCase,
   deleteCase,
-} = require('./cases_controllers');
+} = require('./casesController');
 
 const router = express.Router();
 
