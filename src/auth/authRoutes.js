@@ -3,7 +3,7 @@ const passport = require('passport');
 
 const {
   authenticateWithGoogle, googleCb, login,
-} = require('../controllers/authController');
+} = require('./authController');
 
 const router = Router();
 

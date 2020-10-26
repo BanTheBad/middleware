@@ -1,7 +1,7 @@
 const { config } = require('dotenv');
 const http = require('http');
 
-const logger = require('./helpers/logger');
+const { logger } = require('./shared');
 const app = require('./app');
 
 config();
