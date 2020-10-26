@@ -1,9 +1,11 @@
-const express = require('express');
+const { Router } = require('express');
 const passport = require('passport');
 
-const { authenticateWithGoogle, googleCb, login } = require('./authController');
+const {
+  authenticateWithGoogle, googleCb, login,
+} = require('../controllers/authController');
 
-const router = express.Router();
+const router = Router();
 
 router.get(
   '/google',

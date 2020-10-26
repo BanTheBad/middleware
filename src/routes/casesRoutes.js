@@ -1,13 +1,14 @@
-const express = require('express');
+const { Router } = require('express');
+
 const {
   getAllCases,
   getCase,
   addCase,
   updateCase,
   deleteCase,
-} = require('./casesController');
+} = require('../controllers/casesController');
 
-const router = express.Router();
+const router = Router();
 
 router.get('/', getAllCases);
 
