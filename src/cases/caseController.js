@@ -1,4 +1,4 @@
-const getAllCases = () => {};
+const getAllCases = async () => {};
 
 const getCase = () => {};
 

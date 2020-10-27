@@ -6,7 +6,7 @@ const {
   addVictim,
   updateVictim,
   deleteVictim,
-} = require('../controllers/victimsController');
+} = require('./victimController');
 
 const router = Router();
 

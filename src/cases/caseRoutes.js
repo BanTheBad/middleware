@@ -6,7 +6,7 @@ const {
   addCase,
   updateCase,
   deleteCase,
-} = require('../controllers/casesController');
+} = require('./caseController');
 
 const router = Router();
 
