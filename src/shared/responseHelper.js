@@ -3,7 +3,6 @@ class ResponseHelper{
      * @function
      * @description A simple API response helper
      *
-     * @param {Object} req Express request object
      * @param {Object} res Express response object
      * @param {Number} status HTTP status code
      * @param {Boolean} error Flag for error
@@ -14,7 +13,6 @@ class ResponseHelper{
      */
 
     static sendResponse(
-        req,
         res,
         status,
         error = false,
