@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .docker
+      dockerfile: ./.docker/prod.dockerfile
+    environment:
+      PRODUCTION: 'true'
