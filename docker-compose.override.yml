@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8090:8080
+    depends_on:
+      - db
+
+  app:
+    volumes:
+      - .:/usr/src/app
